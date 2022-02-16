@@ -1,0 +1,16 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+{% block page_product_detail_buy_form_inner %}
+    {% if context.extensions.topbsigoConfig.disableCheckout == false %}
+        {{ parent() }}
+        {% else %}
+            <div class="topbisgo--info-block">
+                <div class="customer--name">{{ page.product.extensions.info.authorName }} {{ page.product.extensions.info.authorLastName }}</div>
+                <div class="email">{{ page.product.extensions.info.email }}</div>
+                <div class="phone">
+                    <a href="https://wa.me/{{ page.product.extensions.info.phone }}">
+                        <img src="{{ asset('bundles/topbisgoadvancedusers/static/icons/36B424nhiL4.svg', 'asset') }}">
+                    </a>
+                </div>
+            </div>
+    {% endif %}
+{% endblock %}

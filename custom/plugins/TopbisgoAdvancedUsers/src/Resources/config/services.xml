@@ -1,0 +1,39 @@
+<?xml version="1.0" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="Topbisgo\AdvancedUsers\Subscriber\SalesChannelContextSubscriber">
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+        <service id="Topbisgo\AdvancedUsers\Subscriber\CustomerRegisterSubscriber">
+            <argument type="service" id="Topbisgo\AdvancedUsers\Core\System\User\Service\UserRegistrationService"/>
+            <tag name="kernel.event_subscriber"/>
+        </service>
+        <service id="Topbisgo\AdvancedUsers\Subscriber\ProductPageSubscriber">
+            <tag name="kernel.event_subscriber"/>
+            <argument type="service" id="topbisgo_custom_role_product_extension.repository"/>
+            <argument type="service" id="user.repository"/>
+            <argument type="service" id="customer.repository"/>
+
+
+        </service>
+
+        <service id="Topbisgo\AdvancedUsers\Core\System\User\Service\UserRegistrationService">
+            <argument type="service" id="Shopware\Core\System\User\Service\UserProvisioner"/>
+            <argument type="service" id="user.repository"/>
+            <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
+            <argument type="service" id="acl_user_role.repository"/>
+            <argument type="service" id="Doctrine\DBAL\Connection"/>
+
+        </service>
+
+        <service id="Topbisgo\AdvancedUsers\Core\Content\Product\Extension\ProductExtensionDefinition">
+            <tag name="shopware.entity.definition" entity="topbisgo_custom_role_product_extension" />
+        </service>
+        <service id="Topbisgo\AdvancedUsers\Core\Content\Product\ProductExtension">
+            <tag name="shopware.entity.extension" />
+        </service>
+    </services>
+</container>

@@ -1,0 +1,6 @@
+{% sw_extends '@Storefront/storefront/layout/header/header.html.twig' %}
+{% block layout_header_actions_cart %}
+{% if context.extensions.topbsigoConfig.disableOffcanvasCart == false %}
+    {{ parent() }}
+{% endif %}
+{% endblock %}

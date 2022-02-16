@@ -1,0 +1,11 @@
+{
+    "topbisgoAdvancedUser": {
+        "account": {
+            "sidebar": {
+                "adminText": "Administration Panel",
+                "userCredentials": "User Name: %firstName%_%lastName%",
+                "passwordText": "Password: The same as you have set on registration"
+            }
+        }
+    }
+}

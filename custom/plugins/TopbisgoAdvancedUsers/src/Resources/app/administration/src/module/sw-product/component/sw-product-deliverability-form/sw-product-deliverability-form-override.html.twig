@@ -1,0 +1,17 @@
+{% block sw_product_deliverability_form_stock_field %}
+    <template v-if="!acl.can('product_stock:deny') || acl.isAdmin()">
+        {% parent %}
+    </template>
+{% endblock %}
+
+{% block sw_product_deliverability_form_available_stock_field %}
+    <template v-if="!acl.can('product_stock:deny') || acl.isAdmin()">
+        {% parent %}
+    </template>
+{% endblock %}
+
+{% block sw_product_deliverability_form_is_closeout_field %}
+    <template v-if="!acl.can('product_stock:deny') || acl.isAdmin()">
+        {% parent %}
+    </template>
+{% endblock %}

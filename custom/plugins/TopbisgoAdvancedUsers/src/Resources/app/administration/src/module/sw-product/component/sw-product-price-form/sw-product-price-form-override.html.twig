@@ -1,0 +1,5 @@
+{% block sw_product_price_form_advanced_prices_link %}
+    <template v-if="!acl.can('product_advanced_pricing:deny') || acl.isAdmin()">
+        {% parent %}
+    </template>
+{% endblock %}

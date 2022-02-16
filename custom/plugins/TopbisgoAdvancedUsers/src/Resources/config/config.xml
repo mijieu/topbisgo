@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>Advanced Configuration</title>
+        <input-field type="bool">
+            <name>disableOffcanvasCart</name>
+            <label>Do you want to disable Offcanvas Cart ?</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+        <input-field type="bool">
+            <name>disableBuyWishlist</name>
+            <label>Do you want to disable buying from wishlist ?</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+        <input-field type="bool">
+            <name>disableCheckout</name>
+            <label>Do you want to disable all checkout steps ?</label>
+            <defaultValue>true</defaultValue>
+        </input-field>
+        <input-field type="bool">
+            <name>disableRepeatOrder</name>
+            <label>Do you want to disable repeating orders from user account ?</label>
+            <defaultValue>false</defaultValue>
+        </input-field>
+        <component name="sw-entity-single-select">
+            <name>customRole</name>
+            <entity>acl_role</entity>
+            <label>Choose the role which is responsible for future registrations:</label>
+        </component>
+    </card>
+</config>

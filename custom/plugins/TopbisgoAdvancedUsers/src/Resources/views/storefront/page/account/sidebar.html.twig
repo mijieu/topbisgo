@@ -1,0 +1,21 @@
+{% sw_extends '@Storefront/storefront/page/account/sidebar.html.twig' %}
+{% block page_account_sidebar_link_orders %}
+    {% if context.extensions.topbsigoConfig.disableCheckout == false %}
+        {{ parent() }}
+    {% else %}
+        <a href="{{ path('administration.index') }}"
+           title="{{ "topbisgoAdvancedUser.account.sidebar.adminText"|trans|striptags }}"
+           class="adminToolTip list-group-item list-group-item-action account-aside-item{% if activeRoute is same as('frontend.account.order.page') %} is-active{% endif %}">
+            {{ "topbisgoAdvancedUser.account.sidebar.adminText"|trans|sw_sanitize }}
+            <span class="adminToolTipText">
+                {{ "topbisgoAdvancedUser.account.sidebar.userCredentials"|trans({
+                    '%firstName%':  page.customer.firstName|lower,
+                    '%lastName%':page.customer.lastName|lower,
+                }) }}
+                <br>
+                {{ "topbisgoAdvancedUser.account.sidebar.passwordText"|trans }}
+            </span>
+        </a>
+    {% endif %}
+
+{% endblock %}

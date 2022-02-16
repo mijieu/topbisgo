@@ -1,0 +1,31 @@
+{
+    "name": "topbisgo/advanced-users",
+    "description": "Advanced Users Experience",
+    "version": "v1.0.0",
+    "type": "shopware-platform-plugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Topbisgo",
+            "role": "Manufacturer"
+        }
+    ],
+    "extra": {
+        "shopware-plugin-class": "Topbisgo\\AdvancedUsers\\TopbisgoAdvancedUsers",
+        "plugin-icon": "src/Resources/config/plugin.png",
+        "copyright": "(c) Topbisgo",
+        "label": {
+            "de-DE": "Topbisgo Advanced Usres Experience",
+            "en-GB": "Topbisgo Advanced Users Experience"
+        },
+        "description": {
+            "de-DE": "Topbisgo Advanced Usres Experience",
+            "en-GB": "Topbisgo Advanced Usres Experience"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Topbisgo\\AdvancedUsers\\": "src/"
+        }
+    }
+}
