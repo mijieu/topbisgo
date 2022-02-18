@@ -2,8 +2,6 @@
 
 CWD="$(cd -P -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 
-set -e
-
 export PROJECT_ROOT="${PROJECT_ROOT:-"$(dirname "$CWD")"}"
 STOREFRONT_ROOT="${STOREFRONT_ROOT:-"${PROJECT_ROOT}/vendor/shopware/storefront"}"
 
@@ -16,7 +14,6 @@ fi
 
 # build storefront
 [[ ${SHOPWARE_SKIP_BUNDLE_DUMP} ]] || "${BIN_TOOL}" bundle:dump
-DATABASE_URL="" "${BIN_TOOL}" feature:dump
 
 if [[ $(command -v jq) ]]; then
     OLDPWD=$(pwd)

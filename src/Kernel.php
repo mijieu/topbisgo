@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Shopware\Production;
 
 use Doctrine\DBAL\Connection;
-use Shopware\Core\DevOps\Environment\EnvironmentHelper;
 use Shopware\Core\Framework\Plugin\KernelPluginLoader\KernelPluginLoader;
 use Shopware\Core\Profiling\Doctrine\DebugStack;
 
@@ -27,9 +26,11 @@ class Kernel extends \Shopware\Core\Kernel
 
     protected function initializeDatabaseConnectionVariables(): void
     {
-        $url = EnvironmentHelper::getVariable('DATABASE_URL', getenv('DATABASE_URL'));
+        $url = $_ENV['DATABASE_URL']
+            ?? $_SERVER['DATABASE_URL']
+            ?? getenv('DATABASE_URL');
 
-        if (EnvironmentHelper::hasVariable('INSTALL') || $url === self::PLACEHOLDER_DATABASE_URL) {
+        if (isset($_SERVER['INSTALL']) || $url === self::PLACEHOLDER_DATABASE_URL) {
             return;
         }
 
